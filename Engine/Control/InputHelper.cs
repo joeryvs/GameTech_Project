@@ -11,8 +11,8 @@ namespace Engine.Control
 
         public readonly ExtendedGame game;
         protected System.TimeSpan ts;
-        MouseState currentMouseState, previousMouseState;
-        KeyboardState currentKeyboardState, previosKeyboardState;
+        protected MouseState currentMouseState, previousMouseState;
+        protected KeyboardState currentKeyboardState, previosKeyboardState;
 
         public InputHelper(ExtendedGame game)
         {
@@ -37,7 +37,11 @@ namespace Engine.Control
         }
         public Vector2 CurrentMousePosition => currentMouseState.Position.ToVector2();
 
-        public Vector2 GameWorldMousePosition => throw new System.NotImplementedException();
+        /// <summary>
+        /// Gets the current position of the mouse in world coordinates.
+        /// </summary>
+        public Vector2 GameWorldMousePosition => game.ScreenToWorld(this.CurrentMousePosition);
+        
 
         public bool LeftMouseButtonPressed => currentMouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released;
 
