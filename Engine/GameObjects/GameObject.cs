@@ -11,7 +11,9 @@ namespace Engine.GameObjects
         private Vector2 localPosition = Vector2.Zero;
         public Vector2 StartPosition { get; set; }
         public Vector2 LocalPosition { get => localPosition; set => localPosition = value; }
+        public GameObject Parent { get => parent; set => parent = value; }
 
+        private GameObject parent;
         protected GameObject()
         {
             Velocity = Vector2.Zero;
