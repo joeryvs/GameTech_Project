@@ -41,6 +41,10 @@ namespace Engine.GameObjects
         /// </summary>
         public bool Visible { get; set; }
 
+        /// <summary>
+        /// Random object borrowed from Extended game
+        /// </summary>
+        public System.Random Random { get { return ExtendedGame.Random; } }
 
         /// <summary>
         /// Gets this object's global position in the game world, by adding its local position to the global position of its parent.
